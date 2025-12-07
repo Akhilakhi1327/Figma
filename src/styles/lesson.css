@@ -1,0 +1,140 @@
+.lesson-card {
+  width: 778px;
+  height: 487px;
+  background: var(--white);
+  border-radius: var(--radius-large);
+  border: var(--border-light);
+  padding: var(--space-600);
+  margin-bottom: 32px;
+}
+.lesson-header {
+  margin-bottom: 24px;
+}
+.lesson-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--black);
+  margin: 0;
+  margin-bottom: 4px;
+}
+.lesson-stats {
+  display: flex;
+  gap: 32px;
+}
+.stat-item {
+  text-align: right;
+}
+.stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 14px;
+  color: var(--dark-gray);
+}
+.chart-container {
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+.chart-placeholder {
+  width: 730px;
+  height: 335px;
+  border: var(--border-dashed);
+  border-radius: var(--radius-small);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.chart-title {
+  font-size: 14px;
+  color: var(--dark-gray);
+  margin-bottom: 20px;
+}
+.chart-bars {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 200px;
+  width: 100%;
+  padding-bottom: 30px;
+}
+.bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+.bar-container {
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+.bar {
+  width: 16px;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s ease;
+}
+.bar.started {
+  background-color: var(--light-gray);
+}
+.bar.completed {
+  background-color: var(--primary-green);
+}
+.month-label {
+  font-size: 12px;
+  color: var(--dark-gray);
+}
+.chart-legend {
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--dark-gray);
+}
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+.legend-color.started {
+  background-color: var(--light-gray);
+}
+.legend-color.completed {
+  background-color: var(--primary-green);
+}
+.daily-learners {
+  padding-top: 24px;
+  border-top: 1px solid var(--light-gray);
+}
+.daily-learners h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+.learners-count {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.count {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary-green);
+}
+.total {
+  font-size: 14px;
+  color: var(--dark-gray);
+}

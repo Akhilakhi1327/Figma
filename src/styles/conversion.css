@@ -1,0 +1,209 @@
+/* src/styles/conversion.css */
+.conversion-card {
+  width: 1621px;
+  height: 684px;
+  background: var(--white);
+  border-radius: var(--radius-large);
+  border: var(--border-light);
+  padding: var(--space-600);
+  margin-bottom: 32px;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.conversion-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: var(--space-600);
+  right: var(--space-600);
+  height: 1px;
+  background: linear-gradient(90deg, 
+    rgba(0, 0, 0, 0.1) 0%, 
+    rgba(0, 0, 0, 0.3) 50%, 
+    rgba(0, 0, 0, 0.1) 100%);
+}
+
+.conversion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.conversion-header-left h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--black);
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+.conversion-header-left .subtitle {
+  font-size: 14px;
+  color: var(--dark-gray);
+  margin: 0;
+  font-weight: 400;
+}
+
+.conversion-header-right .view-only {
+  font-size: 14px;
+  color: var(--dark-gray);
+  padding: 6px 12px;
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  background: var(--bg-light-gray);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.funnel-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.funnel-step {
+  width: 100%;
+  height: 58px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 12px 16px;
+  background: var(--white);
+  border-radius: 8px;
+  border: 1px solid var(--light-gray);
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.funnel-step:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Dark bottom border for each step */
+.funnel-step::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    rgba(0, 0, 0, 0) 0%, 
+    rgba(0, 0, 0, 0.15) 10%, 
+    rgba(0, 0, 0, 0.25) 50%, 
+    rgba(0, 0, 0, 0.15) 90%, 
+    rgba(0, 0, 0, 0) 100%);
+}
+
+.step-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 24px;
+}
+
+.step-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.step-percentage {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.step-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.step-count {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary-green);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.step-drop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--dark-gray);
+  font-weight: 500;
+}
+
+.drop-icon {
+  color: var(--orange);
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.optimization-tip {
+  background: var(--bg-light-orange);
+  border: 1px solid var(--orange);
+  border-radius: var(--radius-medium);
+  padding: var(--space-400);
+  margin-top: 24px;
+  width: 100%;
+}
+
+.optimization-tip h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--black);
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.optimization-tip p {
+  font-size: 14px;
+  color: var(--dark-gray);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Responsive styles */
+@media (max-width: 1680px) {
+  .conversion-card {
+    width: 100%;
+    max-width: 1621px;
+  }
+}
+
+@media (max-width: 768px) {
+  .conversion-card {
+    height: auto;
+    padding: var(--space-400);
+  }
+  
+  .conversion-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .funnel-step {
+    height: auto;
+    min-height: 58px;
+  }
+  
+  .step-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

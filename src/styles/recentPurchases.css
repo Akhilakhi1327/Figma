@@ -1,0 +1,313 @@
+.recent-purchases-container {
+  position: absolute;
+  top: 3768px;
+  left: 275px;
+  width: 1622px;
+  height: 627px;
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+
+.purchases-card {
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  border: 0.3px solid #BDBDBD;
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden; 
+  box-sizing: border-box; 
+}
+
+
+.purchases-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.purchases-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #232323;
+  margin: 0;
+}
+
+.view-all-btn {
+  background: #F8F9FA;
+  border: 1px solid #E9ECEC;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #787878;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-all-btn:hover {
+  background: #F3F4F6;
+  border-color: #BDBDBD;
+}
+
+
+.table-container {
+  width: 100%; 
+  height: calc(100% - 60px); 
+  border-radius: 8px;
+  border: 1px solid #E9ECEC;
+  background: #FFFFFF;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; 
+}
+
+.purchases-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.table-header {
+  background: #F8F9FA;
+  border-bottom: 1px solid #E9ECEC;
+  height: 48px;
+}
+
+.table-header th {
+  padding: 16px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #232323;
+  text-align: left;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.table-row {
+  border-bottom: 1px solid #E9ECEC;
+  height: 64px;
+  transition: background-color 0.2s ease;
+}
+
+.table-row:hover {
+  background: #F8F9FA;
+}
+
+.table-row td {
+  padding: 16px 24px;
+  font-size: 14px;
+  color: #232323;
+  box-sizing: border-box; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.person-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.person-avatar {
+  width: 32px;
+  height: 32px;
+  background: #E5F2E9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #2D5652;
+  flex-shrink: 0; 
+}
+
+.person-name {
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.course-name {
+  font-weight: 500;
+  color: #232323;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.price-value {
+  font-weight: 600;
+  color: #232323;
+}
+
+.date-value {
+  color: #787878;
+}
+
+.payment-type {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.payment-icon {
+  font-size: 16px;
+}
+
+.view-details-link {
+  color: #6366F1;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.view-details-link:hover {
+  color: #4F46E5;
+  text-decoration: underline;
+}
+
+.table-header th:nth-child(1), 
+.table-row td:nth-child(1) { 
+  width: 15%; 
+  min-width: 120px;
+  max-width: 15%;
+} 
+
+.table-header th:nth-child(2), 
+.table-row td:nth-child(2) { 
+  width: 25%; 
+  min-width: 200px;
+  max-width: 25%;
+} 
+
+.table-header th:nth-child(3), 
+.table-row td:nth-child(3) { 
+  width: 10%; 
+  min-width: 80px;
+  max-width: 10%;
+} 
+
+.table-header th:nth-child(4), 
+.table-row td:nth-child(4) { 
+  width: 15%; 
+  min-width: 120px;
+  max-width: 15%;
+} 
+
+.table-header th:nth-child(5), 
+.table-row td:nth-child(5) { 
+  width: 15%; 
+  min-width: 120px;
+  max-width: 15%;
+} 
+
+.table-header th:nth-child(6), 
+.table-row td:nth-child(6) { 
+  width: 10%; 
+  min-width: 80px;
+  max-width: 10%;
+} 
+
+.table-body-container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+.purchases-table tbody {
+  display: block;
+  overflow-y: auto;
+  max-height: calc(100% - 48px); 
+}
+
+.purchases-table thead,
+.purchases-table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.table-body-container::-webkit-scrollbar,
+.purchases-table tbody::-webkit-scrollbar {
+  width: 6px;
+}
+
+.table-body-container::-webkit-scrollbar-track,
+.purchases-table tbody::-webkit-scrollbar-track {
+  background: #F8F9FA;
+  border-radius: 3px;
+}
+
+.table-body-container::-webkit-scrollbar-thumb,
+.purchases-table tbody::-webkit-scrollbar-thumb {
+  background: #BDBDBD;
+  border-radius: 3px;
+}
+
+.table-body-container::-webkit-scrollbar-thumb:hover,
+.purchases-table tbody::-webkit-scrollbar-thumb:hover {
+  background: #787878;
+}
+
+@media (max-width: 1700px) {
+  .recent-purchases-container {
+    width: calc(100% - 300px);
+    left: 275px;
+  }
+  
+  .purchases-card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .recent-purchases-container {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    margin: 32px 0;
+  }
+  
+  .purchases-card {
+    height: 600px; 
+  }
+  
+  .table-container {
+    height: calc(100% - 60px);
+  }
+  
+  .purchases-table {
+    min-width: 900px; 
+  }
+}
+
+@media (max-width: 768px) {
+  .purchases-card {
+    padding: 16px;
+    height: 500px;
+  }
+  
+  .table-header th,
+  .table-row td {
+    padding: 12px 16px;
+  }
+  
+  .purchases-table {
+    min-width: 800px;
+  }
+}

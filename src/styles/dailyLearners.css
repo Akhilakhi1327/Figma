@@ -1,0 +1,380 @@
+
+.daily-learners-container {
+  position: absolute;
+  top: 2673px;
+  left: 275px;
+  width: 819px;
+  height: 487px;
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+/* Outer Box */
+.daily-learners-outer-box {
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  border: 0.3px solid #E5E7EB;
+  border-radius: 12px; /* Corner/Large */
+  padding: 24px; /* Space/600 */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Header Section */
+.learners-header {
+  width: 771px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 1;
+  transform: rotate(0deg);
+  padding: 0 12px;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.learners-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.learners-period {
+  font-size: 14px;
+  color: #6B7280;
+  font-weight: 400;
+  margin: 0;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.total-count {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.count-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1;
+}
+
+.count-label {
+  font-size: 12px;
+  color: #6B7280;
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+.new-today {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.new-value {
+  font-size: 20px;
+  font-weight: 600;
+  color: #10B981;
+  line-height: 1;
+}
+
+.new-label {
+  font-size: 12px;
+  color: #6B7280;
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+/* Graph Section */
+.learners-graph-box {
+  width: 771px;
+  height: 335px;
+  opacity: 1;
+  transform: rotate(0deg);
+  background: #F9FAFB;
+  border-radius: 8px;
+  border: 1px solid #E5E7EB;
+  display: flex;
+  padding: 20px;
+}
+
+/* Y-axis */
+.y-axis {
+  width: 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 20px 0;
+  margin-right: 16px;
+}
+
+.y-label {
+  font-size: 11px;
+  color: #6B7280;
+  font-weight: 500;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Graph Area */
+.graph-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Grid Lines */
+.grid-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 40px; /* Space for x-axis */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.grid-line {
+  height: 1px;
+  background: #E5E7EB;
+  width: 100%;
+}
+
+/* Curve Graph */
+.curve-graph {
+  flex: 1;
+  position: relative;
+  margin-bottom: 40px; /* Space for x-axis labels */
+}
+
+.curve-graph svg {
+  width: 100%;
+  height: 100%;
+}
+
+.main-curve-line {
+  filter: drop-shadow(0 2px 4px rgba(16, 185, 129, 0.2));
+  transition: stroke-width 0.3s ease;
+}
+
+.data-point {
+  transition: r 0.3s ease;
+}
+
+.data-point:hover {
+  r: 6;
+}
+
+.data-point-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    r: 8;
+    opacity: 0.2;
+  }
+  50% {
+    r: 12;
+    opacity: 0.1;
+  }
+}
+
+.curve-area {
+  transition: fill-opacity 0.3s ease;
+}
+
+/* X-axis */
+.x-axis {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  border-top: 1px solid #E5E7EB;
+}
+
+.x-label {
+  font-size: 12px;
+  color: #374151;
+  font-weight: 500;
+  text-align: center;
+  flex: 1;
+}
+
+/* Stats Section */
+.learners-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 12px;
+}
+
+.stat-item {
+  flex: 1;
+  background: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  background: #F3F4F6;
+  border-color: #D1D5DB;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.stat-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+.stat-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.stat-value.positive {
+  color: #10B981;
+}
+
+/* Hover Effects */
+.daily-learners-outer-box:hover {
+  border-color: #D1D5DB;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.curve-graph:hover .main-curve-line {
+  stroke-width: 4;
+}
+
+/* Tooltip for data points */
+.data-point:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  background: #111827;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .daily-learners-container {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    max-width: 819px;
+  }
+  
+  .daily-learners-outer-box,
+  .learners-header,
+  .learners-graph-box {
+    width: 100%;
+    height: auto;
+  }
+  
+  .learners-graph-box {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .y-axis {
+    width: 100%;
+    height: 40px;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 0;
+    margin-bottom: 16px;
+    padding: 0 20px;
+  }
+  
+  .y-label {
+    height: auto;
+    width: auto;
+  }
+  
+  .learners-stats {
+    flex-direction: column;
+  }
+}
+
+/* Animation for curve drawing */
+@keyframes drawCurve {
+  from {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+  }
+}
+
+.main-curve-line {
+  animation: drawCurve 2s ease-out forwards;
+}
+
+/* Loading animation */
+.daily-learners-outer-box {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
