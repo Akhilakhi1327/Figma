@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/courses.css';
+import './courses.css';
 
 function TopSellingCourses() {
   const [activeFilter, setActiveFilter] = useState('all');

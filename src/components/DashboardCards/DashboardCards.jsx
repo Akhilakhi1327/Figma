@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/dashboard.css';
+import './dashboard.css';
 
 function DashboardCards() {
   const cardsData = [

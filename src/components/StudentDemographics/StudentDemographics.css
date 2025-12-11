@@ -1,0 +1,156 @@
+.student-demographics {
+  background-color: #FFFFFF;
+  border: 0.3px solid #E0E0E0;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.demographics-header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 0.3px solid #E0E0E0;
+}
+
+.demographics-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2C3E50;
+  margin: 0 0 4px 0;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #7F8C8D;
+  margin: 0;
+}
+
+.demographics-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.age-distribution h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2C3E50;
+  margin: 0 0 16px 0;
+}
+
+.age-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.age-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.age-range {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2C3E50;
+}
+
+.age-count {
+  font-size: 14px;
+  color: #7F8C8D;
+}
+
+.age-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.age-bar-background {
+  flex: 1;
+  height: 8px;
+  background-color: #E9ECEF;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.age-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.age-percentage {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2C3E50;
+  min-width: 40px;
+  text-align: right;
+}
+
+.demographics-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.total-students {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #F8F9FA;
+  border-radius: 8px;
+}
+
+.total-label {
+  font-size: 14px;
+  color: #7F8C8D;
+}
+
+.total-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2C3E50;
+}
+
+.gender-distribution h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2C3E50;
+  margin: 0 0 12px 0;
+}
+
+.gender-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gender-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.gender-bar .bar-fill {
+  flex: 1;
+  height: 8px;
+  border-radius: 4px;
+}
+
+.gender-bar.male .bar-fill {
+  background: linear-gradient(to right, #3B82F6, #60A5FA);
+}
+
+.gender-bar.female .bar-fill {
+  background: linear-gradient(to right, #EC4899, #F472B6);
+}
+
+.gender-label {
+  font-size: 14px;
+  color: #2C3E50;
+  min-width: 80px;
+}

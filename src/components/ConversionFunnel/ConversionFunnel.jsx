@@ -1,6 +1,5 @@
-// src/components/ConversionFunnel.jsx
 import React from 'react';
-import '../styles/conversion.css';
+import './ConversionFunnel.css';
 
 function ConversionFunnel() {
   const funnelSteps = [
@@ -38,7 +37,6 @@ function ConversionFunnel() {
 
   return (
     <div className="conversion-card">
-      {/* Header Section */}
       <div className="conversion-header">
         <div className="conversion-header-left">
           <h3>Conversion Funnel</h3>
@@ -49,7 +47,6 @@ function ConversionFunnel() {
         </div>
       </div>
       
-      {/* Funnel Steps */}
       <div className="funnel-steps">
         {funnelSteps.map((step, index) => (
           <div key={index} className="funnel-step">
@@ -72,7 +69,6 @@ function ConversionFunnel() {
         ))}
       </div>
       
-      {/* Optimization Tip */}
       <div className="optimization-tip">
         <h4>OPTIMIZATION OPPORTUNITY</h4>
         <p>

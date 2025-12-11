@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/revenue.css';
+import './revenue.css';
 
 function RevenueTrend() {
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/lesson.css';
+import './lesson.css';
 
 function LessonTrends() {
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];

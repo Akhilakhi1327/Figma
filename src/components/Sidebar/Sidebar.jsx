@@ -1,14 +1,14 @@
 import React from 'react';
-import '../styles/sidebar.css';
+import './sidebar.css';
 
 function Sidebar() {
   const menuItems = [
-    { icon: '', label: 'Dashboard' },
-    { icon: '', label: 'Students' },
-    { icon: '', label: 'Courses' },
-    { icon: '', label: 'Revenue' },
-    { icon: '', label: 'Analytics' },
-    { icon: '', label: 'Settings' }
+    // { icon: '', label: 'Dashboard' },
+    // { icon: '', label: 'Students' },
+    // { icon: '', label: 'Courses' },
+    // { icon: '', label: 'Revenue' },
+    // { icon: '', label: 'Analytics' },
+    // { icon: '', label: 'Settings' }
   ];
 
   return (

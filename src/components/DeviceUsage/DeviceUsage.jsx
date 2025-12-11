@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/device.css';
+import './device.css';
 
 function DeviceUsage() {
   const deviceData = [

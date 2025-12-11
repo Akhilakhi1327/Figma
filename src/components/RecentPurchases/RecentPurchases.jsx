@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/recentPurchases.css';
+import './recentPurchases.css';
 
 function RecentPurchases() {
   const purchases = [

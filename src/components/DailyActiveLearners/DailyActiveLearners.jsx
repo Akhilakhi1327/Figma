@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/dailyLearners.css';
+import './dailyLearners.css';
 
 function DailyActiveLearners() {
   const weeklyData = [

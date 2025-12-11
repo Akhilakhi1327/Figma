@@ -1,0 +1,138 @@
+.revenue-breakdown {
+  background-color: #FFFFFF;
+  border: 0.3px solid #E0E0E0;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.revenue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 0.3px solid #E0E0E0;
+}
+
+.header-left h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2C3E50;
+  margin: 0 0 4px 0;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #7F8C8D;
+  margin: 0;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.total-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #7F8C8D;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.total-amount {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2C3E50;
+}
+
+.revenue-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.revenue-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #F8F9FA;
+  border-radius: 8px;
+  border-left: 4px solid;
+  transition: transform 0.2s ease;
+}
+
+.revenue-item:hover {
+  transform: translateY(-1px);
+  background-color: #F1F3F4;
+}
+
+.item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.color-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.source-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2C3E50;
+}
+
+.item-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.source-amount {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2C3E50;
+  margin-bottom: 2px;
+}
+
+.source-percentage {
+  font-size: 12px;
+  color: #7F8C8D;
+}
+
+.revenue-footer {
+  margin-top: 20px;
+}
+
+.percentage-bar {
+  display: flex;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.percentage-segment {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.percentage-labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.percentage-label {
+  font-size: 12px;
+  color: #7F8C8D;
+  font-weight: 500;
+}
