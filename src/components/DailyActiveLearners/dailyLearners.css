@@ -9,7 +9,7 @@
   transform: rotate(0deg);
 }
 
-/* Outer Box */
+
 .daily-learners-outer-box {
   width: 100%;
   height: 100%;
@@ -23,7 +23,6 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* Header Section */
 .learners-header {
   width: 771px;
   height: 80px;
@@ -101,7 +100,7 @@
   font-weight: 400;
 }
 
-/* Graph Section */
+
 .learners-graph-box {
   width: 771px;
   height: 335px;
@@ -136,7 +135,6 @@
   justify-content: flex-end;
 }
 
-/* Graph Area */
 .graph-area {
   flex: 1;
   display: flex;
@@ -289,7 +287,6 @@
   stroke-width: 4;
 }
 
-/* Tooltip for data points */
 .data-point:hover::after {
   content: attr(data-tooltip);
   position: absolute;

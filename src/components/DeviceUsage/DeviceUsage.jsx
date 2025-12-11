@@ -1,5 +1,5 @@
-import React from 'react';
-import './device.css';
+import React from "react";
+import "./device.css";
 
 function DeviceUsage() {
   const deviceData = [
@@ -8,22 +8,19 @@ function DeviceUsage() {
       count: "4,287 students",
       percentage: "65%",
       color: "var(--primary-green)",
-      
     },
     {
       name: "Mobile",
       count: "1,846 students",
       percentage: "28%",
       color: "var(--blue)",
-      
     },
     {
       name: "Tablet",
       count: "461 students",
       percentage: "7%",
       color: "var(--green)",
-      icon: ""
-    }
+    },
   ];
 
   return (
@@ -34,43 +31,78 @@ function DeviceUsage() {
           <p className="subtitle">Student access patterns</p>
         </div>
       </div>
-      
+
       <div className="device-content">
         <div className="pie-section">
-          <div className="pie-chart-box">
-            <div className="pie-placeholder">
-              <div className="pie-center">
-                <div>6,594</div>
-                <div className="center-label">Total Users</div>
-              </div>
+
+          
+          <div className="pie-chart-small">
+            <svg viewBox="0 0 36 36" className="circular-chart">
+
+              
+              <path
+                className="circle desktop"
+                strokeDasharray="65, 100"
+                d="M18 2.0845
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+
+             
+              <path
+                className="circle mobile"
+                strokeDasharray="28, 100"
+                d="M18 2.0845
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+
+              
+              <path
+                className="circle tablet"
+                strokeDasharray="7, 100"
+                d="M18 2.0845
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+            </svg>
+
+            <div className="pie-center-small">
+              <div className="total-number">6,594</div>
+              <div className="total-label">Total Users</div>
             </div>
           </div>
+
           
           <div className="device-legends">
             {deviceData.map((device, index) => (
               <div key={index} className="device-item">
                 <div className="device-info">
-                  <div className="device-icon">{device.icon}</div>
+                  <div className="device-icon"></div>
+
                   <div className="device-details">
                     <div className="device-name">{device.name}</div>
                     <div className="device-count">{device.count}</div>
                   </div>
+
                   <div className="device-percentage">{device.percentage}</div>
                 </div>
+
                 <div className="progress-bar">
-                  <div 
-                    className="progress-fill" 
-                    style={{ 
+                  <div
+                    className="progress-fill"
+                    style={{
                       width: device.percentage,
-                      backgroundColor: device.color
+                      backgroundColor: device.color,
                     }}
-                  ></div>
+                  />
                 </div>
               </div>
             ))}
           </div>
         </div>
-        
+
+       
         <div className="device-platforms">
           <div className="platform-item">
             <div className="platform-icon"></div>
@@ -79,6 +111,7 @@ function DeviceUsage() {
               <div className="platform-stats">Most used (65%)</div>
             </div>
           </div>
+
           <div className="platform-item">
             <div className="platform-icon"></div>
             <div className="platform-info">
@@ -86,6 +119,7 @@ function DeviceUsage() {
               <div className="platform-stats">Growing (↑12%)</div>
             </div>
           </div>
+
           <div className="platform-item">
             <div className="platform-icon"></div>
             <div className="platform-info">
@@ -94,6 +128,7 @@ function DeviceUsage() {
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );

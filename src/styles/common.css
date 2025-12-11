@@ -1,3 +1,4 @@
+/* ---------------- VARIABLES & RESET ---------------- */
 * {
   margin: 0;
   padding: 0;
@@ -18,121 +19,159 @@
   --green: #10B981;
   --orange: #F59E0B;
   --yellow: #F59E0B;
-  
+
   --bg-light-green: #E5F2E9;
   --bg-light-gray: #F8F9FA;
   --bg-light-blue: #ECECF9;
   --bg-light-orange: #FFF4E5;
   --bg-light-pink: #F7EAF2;
   --bg-light-brown: #F8F1E6;
-  
+
   --space-300: 16px;
   --space-400: 24px;
   --space-600: 32px;
-  
+
   --radius-small: 8px;
   --radius-medium: 12px;
   --radius-large: 16px;
-  
+
   --shadow-sm: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
   --shadow-md: 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
   --shadow-lg: 0px 4px 20px rgba(0, 0, 0, 0.08);
-  
+
   --border-light: 0.3px solid var(--medium-gray);
   --border-dashed: 1px dashed #E8EBF0;
+
+  /* sidebar width used by layout rules */
+  --sidebar-width: 250px;
 }
 
 body {
-  background-color: #F8F9FA;
+  background-color: var(--bg-light-gray);
   overflow-x: hidden;
 }
 
+/* ---------------- APP LAYOUT HELPERS ---------------- */
 .app-container {
   display: flex;
+  width: 100%;
   min-height: 100vh;
+  box-sizing: border-box;
   position: relative;
+  background: var(--bg-page, #f7f8fb);
 }
 
+/* when mobile sidebar is open, prevent background scroll */
+.app-container.sidebar-open {
+  overflow: hidden;
+}
+
+/* main-content holds the page area; content-inner controls visual width/caps */
 .main-content {
-  flex: 1;
-  padding-left: 274px;
-  padding-top: 24px;
-  min-height: 100vh;
-  width: calc(100% - 250px);
+  flex: 1 1 auto;
+  padding: 20px;
+  margin-left: 0;
+  box-sizing: border-box;
+  width: 100%;
 }
 
-.flex-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* content-inner: cap the readable content width and align to left edge of main-content */
+.content-inner {
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-right: 8px;
+  padding-left: 0;
 }
 
-.flex-column {
-  display: flex;
-  flex-direction: column;
+/* Desktop: leave space for sidebar and make main-content use viewport minus sidebar */
+@media (min-width: 992px) {
+  .main-content {
+    margin-left: var(--sidebar-width);
+    padding: 28px 24px;
+    max-width: calc(100vw - var(--sidebar-width) - 48px);
+  }
+
+  /* content-inner caps internal content width so items don't float in the middle */
+  .content-inner {
+    max-width: 1200px; /* readable line width */
+    margin: 0; /* align to main-content left edge */
+    padding-left: 0;
+    padding-right: 24px;
+  }
 }
 
-.gap-8 { gap: 8px; }
-.gap-12 { gap: 12px; }
-.gap-16 { gap: 16px; }
-.gap-24 { gap: 24px; }
-.gap-32 { gap: 32px; }
-.gap-44 { gap: 44px; }
+/* Very wide screens: allow slightly larger content but keep a left gutter */
+@media (min-width: 1600px) {
+  .content-inner {
+    max-width: 1400px;
+    margin-left: 24px;
+  }
+}
 
-.text-center { text-align: center; }
-.text-right { text-align: right; }
+/* Overlay used on mobile when sidebar is open */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  pointer-events: none;
+  transition: background 220ms ease;
+  z-index: 1150;
+}
+.overlay--visible {
+  background: rgba(0, 0, 0, 0.36);
+  pointer-events: auto;
+}
 
-.mt-10 { margin-top: 10px; }
-.mt-16 { margin-top: 16px; }
-.mt-24 { margin-top: 24px; }
-.mt-32 { margin-top: 32px; }
-
-.mb-8 { margin-bottom: 8px; }
-.mb-12 { margin-bottom: 12px; }
-.mb-16 { margin-bottom: 16px; }
-.mb-24 { margin-bottom: 24px; }
-
-
-.frame-1 {
-  width: 1614px;
-  height: 208px;
-  position: absolute;
-  top: 123px;
-  left: 274px;
+/* ---------------- GRID & CARD HELPERS ---------------- */
+/* Use grid on desktop for consistent columns and spacing */
+.row {
   display: flex;
   gap: 16px;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin-bottom: 16px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.frame-2 {
-  display: flex;
-  gap: 44px;
-  position: absolute;
-  top: 355px;
-  left: 275px;
+/* On desktop prefer CSS grid layout for even columns */
+@media (min-width: 992px) {
+  .row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    align-items: start;
+  }
 }
 
-.frame-3 {
-  display: flex;
-  gap: 44px;
-  position: absolute;
-  top: 891px;
-  left: 275px;
+.col {
+  flex: 1 1 320px;
+  min-width: 260px;
+  box-sizing: border-box;
+}
+.col--full { flex: 1 1 100%; min-width: 100%; width: 100%; }
+
+.card, .conversion-card, .dashboard-card {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--white);
+  border-radius: var(--radius-large);
+  border: var(--border-light);
+  box-shadow: var(--shadow-md);
 }
 
-.frame-4 {
-  position: absolute;
-  top: 1965px;
-  left: 275px;
-}
+/* keep cards from overflowing on very wide screens */
+.card { max-width: 100%; margin: 0; }
 
-.frame-5 {
-  display: flex;
-  gap: 44px;
-  position: absolute;
-  top: 2673px;
-  left: 275px;
-}
+/* ---------------- TYPOGRAPHY & SMALL HELPERS ---------------- */
+.flex-between { display:flex; justify-content:space-between; align-items:center; }
+.flex-column { display:flex; flex-direction:column; }
 
+.gap-8 { gap:8px } .gap-12 { gap:12px } .gap-16 { gap:16px } .gap-24 { gap:24px }
+.text-center { text-align:center } .text-right { text-align:right }
+
+/* ---------------- MISC UI HELPERS (charts, progress etc) ---------------- */
 .chart-placeholder {
   border: var(--border-dashed);
   border-radius: var(--radius-small);
@@ -158,110 +197,117 @@ body {
 
 .pie-center {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   background: white;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 80px; height: 80px; border-radius: 50%;
+  display: flex; flex-direction: column; align-items:center; justify-content:center;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  font-weight: 600;
-  font-size: 16px;
-  color: var(--black);
-}
-
-.center-label {
-  font-size: 12px;
-  color: var(--dark-gray);
-  margin-top: 2px;
+  font-weight: 600; font-size: 16px; color: var(--black);
 }
 
 .progress-bar {
+  width: 100%; height: 8px; background-color: var(--light-gray); border-radius: 4px; overflow:hidden;
+}
+.progress-fill { height:100%; border-radius:4px; transition: width 0.3s ease; }
+
+/* ---------------- SCROLLBAR ---------------- */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--light-gray); border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: var(--medium-gray); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--dark-gray); }
+
+/* ---------------- RESPONSIVE TWEAKS ---------------- */
+@media (max-width: 992px) {
+  .main-content { padding: 16px; }
+  .row { gap: 12px; display: flex; flex-direction: column; }
+  .col { flex: 1 1 100%; min-width: 100%; }
+  .content-inner { padding-right: 0; padding-left: 0; }
+}
+/* ---------- Force-safe two-column layout for revenue (fix overlapping) ---------- */
+
+/* Important: apply this to the frame containing the two columns */
+.frame-2.two-col-grid {
+  display: grid !important;
+  /* left: flexible and allowed to shrink; right: fixed column */
+  grid-template-columns: minmax(0, 1fr) 360px; /* change 360px if you want different aside width */
+  column-gap: 24px;
+  row-gap: 18px;
+  align-items: start;
   width: 100%;
-  height: 8px;
-  background-color: var(--light-gray);
-  border-radius: 4px;
-  overflow: hidden;
+  box-sizing: border-box;
 }
 
-.progress-fill {
-  height: 100%;
-  border-radius: 4px;
-  transition: width 0.3s ease;
+/* Ensure the left flexible column can shrink inside the grid (critical) */
+.col--flex {
+  min-width: 0; /* allows children (SVG, charts) to shrink instead of forcing grid expansion */
+  flex: 1 1 0%;
+  box-sizing: border-box;
 }
 
-.card {
-  background: var(--white);
-  border-radius: var(--radius-large);
-  border: var(--border-light);
-  box-shadow: var(--shadow-md);
-}
-
-.card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--light-gray);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--medium-gray);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--dark-gray);
-}
-
-.dashboard-cards {
+/* Aside column: reserve fixed width on desktop, expand full width on mobile */
+.col--aside {
+  box-sizing: border-box;
+  min-width: 0;
+  flex: 0 0 360px;
+  max-width: 360px;
   width: 100%;
-  height: 100%;
 }
 
-.revenue-trend-card {
-  width: 1019px;
-  height: 512px;
+/* On small screens stack columns vertically */
+@media (max-width: 992px) {
+  .frame-2.two-col-grid {
+    grid-template-columns: 1fr;
+  }
+  .col--aside {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 }
 
+/* Make sure chart containers do not force the grid to overflow */
+.revenue-trend-card,
+.line-graph-container,
+.chart-placeholder,
+.revenue-breakdown,
 .revenue-breakdown-card {
-  width: 578px;
-  height: 512px;
+  min-width: 0;        /* allow shrinking inside the grid */
+  box-sizing: border-box;
 }
 
-.demographics-card {
-  width: 632px;
-  height: 481px;
+/* Make sure SVG scales to its container instead of growing it */
+.line-graph-container svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  max-width: 100%;
 }
 
-.courses-card {
-  width: 848px;
-  height: 481px;
+/* Reset any leftover margins that could cause overlap */
+.revenue-trend-card, .revenue-breakdown-card {
+  margin: 0;
+  position: relative; /* keep normal flow */
+  z-index: 1;         /* allow drop shadow but prevents accidental stacking */
 }
 
-.conversion-card {
-  width: 1621px;
-  height: 684px;
+/* Safety: prevent children from using negative margins or transforms that pull them out */
+.revenue-breakdown-card * { transform: none !important; }
+/* If a conflicting rule still overlaps, this debugging aid shows grid cell outlines.
+   Remove/comment out after verification. */
+/*
+.frame-2.two-col-grid > .col {
+  outline: 1px dashed rgba(0,0,0,0.06);
+}
+*/
+
+/* Full-width section helper for components that must span the content area */
+.full-width-section {
+  width: 100%;
+  margin-bottom: 24px;
+  box-sizing: border-box;
 }
 
-.lesson-card {
-  width: 778px;
-  height: 487px;
-}
-
-.device-card {
-  width: 701px;
-  height: 560px;
+.full-width-section > * {
+  width: 100%;
+  display: block;
 }

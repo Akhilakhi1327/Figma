@@ -1,135 +1,147 @@
+:root{
+  --white:#fff;
+  --black:#0b0b0b;
+  --dark-gray:#6b7280;
+  --light-gray:#e6e6e6;
+  --bg-light-gray:#fbfbfd;
+  --border-light:1px solid rgba(15,15,15,0.06);
+  --radius-medium:12px;
+  --radius-large:16px;
+  --space-400:12px;
+  --space-600:20px;
+  --primary-green:#06b6a4;
+  --blue:#3b82f6;
+  --green:#10b981;
+}
+
+
 .device-card {
-  width: 701px;
-  height: 560px;
+  width: 100%;
+  max-width: 720px;
   background: var(--white);
   border-radius: var(--radius-large);
   border: var(--border-light);
-  padding: var(--space-600);
-  margin-bottom: 32px;
+  padding: 16px;
+  margin: 16px auto;
 }
-.device-header {
-  margin-bottom: 24px;
-}
-.device-header h3 {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--black);
-  margin: 0;
-  margin-bottom: 4px;
-}
+
+.device-header h3 { margin-bottom: 4px; }
+.subtitle { color: var(--dark-gray); }
+
+
 .device-content {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }
+
 .pie-section {
   display: flex;
-  gap: 40px;
+  flex-direction: column;
   align-items: center;
+  gap: 18px;
 }
-.pie-chart-box {
-  width: 280px;
-  height: 280px;
+
+.pie-chart-small {
+  position: relative;
+  width: 140px; 
+  height: 140px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
+
+.circular-chart {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.circle {
+  fill: none;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+
+.circle.desktop { stroke: var(--primary-green); }
+.circle.mobile { stroke: var(--blue); }
+.circle.tablet { stroke: var(--green); }
+
+.pie-center-small {
+  position: absolute;
+  text-align: center;
+}
+
+.total-number {
+  font-size: 1rem;
+  font-weight: 700;
+}
+.total-label {
+  font-size: 0.8rem;
+  color: var(--dark-gray);
+}
+
+/* LEGENDS */
 .device-legends {
-  flex: 1;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 .device-item {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 12px;
   background: var(--bg-light-gray);
-  border-radius: var(--radius-medium);
   border: 1px solid var(--light-gray);
+  border-radius: var(--radius-medium);
+  padding: 12px;
 }
+
 .device-info {
   display: flex;
   align-items: center;
   gap: 12px;
 }
+
 .device-icon {
-  font-size: 24px;
   width: 40px;
   height: 40px;
   background: var(--white);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
-.device-details {
-  flex: 1;
-}
-.device-name {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--black);
-  margin-bottom: 2px;
-}
-.device-count {
-  font-size: 14px;
-  color: var(--dark-gray);
-}
-.device-percentage {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--black);
-}
+
 .progress-bar {
-  width: 100%;
-  height: 8px;
   background: var(--light-gray);
+  height: 8px;
   border-radius: 4px;
   overflow: hidden;
 }
+.progress-fill { height: 100%; }
+
 .device-platforms {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding-top: 16px;
   border-top: 1px solid var(--light-gray);
 }
+
 .platform-item {
-  width: 182px;
-  height: 137px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: var(--space-400);
   background: var(--bg-light-gray);
-  border-radius: var(--radius-medium);
   border: 1px solid var(--light-gray);
+  border-radius: var(--radius-medium);
+  padding: 12px;
+  text-align: center;
 }
+
 .platform-icon {
-  font-size: 32px;
   width: 60px;
   height: 60px;
   background: var(--white);
   border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
 }
-.platform-info {
-  text-align: center;
-}
-.platform-name {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--black);
-  margin-bottom: 4px;
-}
-.platform-stats {
-  font-size: 14px;
-  color: var(--dark-gray);
+
+@media (min-width: 760px) {
+  .pie-section {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }

@@ -1,11 +1,6 @@
 import React from 'react';
 import './CourseCompletion.css';
 
-/**
- * Course Completion Status Component
- * Exact dimensions: 380px × 280px
- * Shows progress bars for different courses
- */
 const CourseCompletion = ({ width = '380px', height = '280px' }) => {
   const courses = [
     { name: 'Web Development', enrolled: 850, completed: 680, progress: 80, color: '#3B82F6' },

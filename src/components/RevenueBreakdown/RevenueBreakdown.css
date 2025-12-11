@@ -1,31 +1,35 @@
 .revenue-breakdown {
-  background-color: #FFFFFF;
-  border: 0.3px solid #E0E0E0;
-  border-radius: 12px;
-  padding: 24px;
-  margin-bottom: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  background-color: var(--white);
+  border: var(--border-light);
+  border-radius: var(--radius-large);
+  padding: clamp(12px, 2.4vw, 20px);
+  box-shadow: var(--shadow-md);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .revenue-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 0.3px solid #E0E0E0;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: var(--border-light);
 }
 
 .header-left h3 {
-  font-size: 18px;
+  font-size: clamp(16px, 1.6vw, 18px);
   font-weight: 600;
-  color: #2C3E50;
+  color: var(--black);
   margin: 0 0 4px 0;
 }
 
 .subtitle {
-  font-size: 14px;
-  color: #7F8C8D;
+  font-size: 13px;
+  color: var(--dark-gray);
   margin: 0;
 }
 
@@ -33,106 +37,139 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  gap: 4px;
 }
 
 .total-label {
   font-size: 12px;
   font-weight: 500;
-  color: #7F8C8D;
+  color: var(--dark-gray);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 2px;
 }
 
 .total-amount {
-  font-size: 24px;
-  font-weight: 600;
-  color: #2C3E50;
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 700;
+  color: var(--black);
 }
 
 .revenue-content {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: 12px;
+  margin: 12px 0;
 }
 
 .revenue-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 16px;
-  background-color: #F8F9FA;
+  gap: 12px;
+  padding: 10px 12px;
+  background-color: var(--bg-light-gray);
   border-radius: 8px;
-  border-left: 4px solid;
-  transition: transform 0.2s ease;
+  border-left: 4px solid transparent;
+  transition: transform 0.16s ease, background-color 0.16s ease;
+  box-sizing: border-box;
 }
 
 .revenue-item:hover {
-  transform: translateY(-1px);
-  background-color: #F1F3F4;
+  transform: translateY(-3px);
+  background-color: #f3f5f6;
 }
 
 .item-left {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
 }
 
 .color-indicator {
   width: 12px;
   height: 12px;
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .source-name {
   font-size: 14px;
-  font-weight: 500;
-  color: #2C3E50;
+  font-weight: 600;
+  color: var(--black);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .item-right {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  gap: 4px;
+  min-width: 0;
 }
 
 .source-amount {
-  font-size: 16px;
-  font-weight: 600;
-  color: #2C3E50;
-  margin-bottom: 2px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+  white-space: nowrap;
 }
 
 .source-percentage {
   font-size: 12px;
-  color: #7F8C8D;
+  color: var(--dark-gray);
 }
 
 .revenue-footer {
-  margin-top: 20px;
+  margin-top: 12px;
 }
 
 .percentage-bar {
   display: flex;
-  height: 8px;
-  border-radius: 4px;
+  width: 100%;
+  height: 10px;
+  border-radius: 8px;
   overflow: hidden;
   margin-bottom: 8px;
+  box-sizing: border-box;
 }
 
 .percentage-segment {
   height: 100%;
-  transition: width 0.3s ease;
+  transition: flex-basis 0.36s ease;
+  flex-shrink: 0;
 }
 
 .percentage-labels {
   display: flex;
   justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--dark-gray);
+  flex-wrap: wrap;
 }
 
-.percentage-label {
-  font-size: 12px;
-  color: #7F8C8D;
-  font-weight: 500;
+@media (max-width: 520px) {
+  .revenue-header {
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .header-right {
+    align-items: flex-start;
+  }
+  .revenue-item {
+    padding: 10px;
+    gap: 8px;
+  }
+  .source-name { font-size: 13px; }
+  .source-amount { font-size: 13px; }
+  .percentage-bar { height: 8px; }
+}
+
+.revenue-breakdown,
+.revenue-breakdown * {
+  max-width: 100%;
+  box-sizing: border-box;
 }

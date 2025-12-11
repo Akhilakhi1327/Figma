@@ -1,53 +1,118 @@
 .dashboard-cards {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
-  width: 1614px;
-  height: 208px;
+  width: 100%;               
   margin-bottom: 32px;
+  align-items: stretch;
+  box-sizing: border-box;
+  padding: 0;
 }
+
+/* Individual stat card */
 .stat-card {
-  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
   background: var(--white);
   border-radius: var(--radius-large);
   padding: var(--space-400);
   border: var(--border-light);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   box-shadow: var(--shadow-md);
+  box-sizing: border-box;
+  min-height: 120px;        /* reasonable min height */
+  transition: transform 160ms ease, box-shadow 160ms ease;
 }
+
+/* Hover lift */
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Make layout vertical on very small screens for better spacing */
+@media (max-width: 520px) {
+  .stat-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    min-height: 110px;
+  }
+
+  .card-change {
+    align-self: stretch;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+/* content inside card */
 .card-content {
   display: flex;
   flex-direction: column;
+  gap: 6px;
 }
+
+/* responsive font sizes using clamp(min, preferred, max) */
 .card-value {
-  font-size: 36px;
+  font-size: clamp(20px, 4.5vw, 36px); /* scales between mobile and desktop */
   font-weight: 700;
   color: var(--black);
-  margin-bottom: 4px;
+  line-height: 1;
 }
+
 .card-title {
-  font-size: 16px;
+  font-size: clamp(12px, 1.6vw, 16px);
   font-weight: 600;
   color: var(--primary-green);
-  margin-bottom: 4px;
+  letter-spacing: 0.2px;
 }
+
 .card-subtitle {
-  font-size: 14px;
+  font-size: clamp(11px, 1.4vw, 14px);
   color: var(--dark-gray);
 }
+
+/* change block alignment (right side) */
 .card-change {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  gap: 6px;
+  min-width: 80px;
 }
+
+/* change value style */
 .change-value {
   color: var(--green);
   font-weight: 600;
-  font-size: 18px;
+  font-size: clamp(14px, 2vw, 18px);
 }
+
+/* supporting text */
 .change-text {
-  font-size: 12px;
+  font-size: clamp(10px, 1.2vw, 12px);
   color: var(--dark-gray);
-  margin-top: 4px;
+}
+
+/* ensure cards don't overflow when content is long */
+.stat-card, .card-content, .card-change {
+  overflow: hidden;
+}
+
+/* small tweak when there are many cards (e.g., > 3) – keep visual balance */
+@media (min-width: 1100px) {
+  .dashboard-cards {
+    gap: 20px;
+  }
+  .stat-card { padding: var(--space-400); min-height: 140px; }
+}
+
+/* Accessibility: make clickable area comfortable (if cards become clickable later) */
+.stat-card:focus-within {
+  outline: 2px solid rgba(0,0,0,0.06);
+  outline-offset: 2px;
 }

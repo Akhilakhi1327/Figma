@@ -1,37 +1,52 @@
 .header {
-  width: 1622px;
-  height: 75px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 0;
-  border-bottom: 0.8px solid rgba(0, 0, 0, 0.06);
-  margin-bottom: 24px;
+  padding: 12px 0;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
 }
-.header-left h1 {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--black);
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.header-title {
+  font-size: 18px;
   margin: 0;
-  margin-bottom: 4px;
+  font-weight: 600;
+  color: var(--black);
 }
 .subtitle {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--dark-gray);
-  margin: 0;
+  margin-top: 2px;
 }
+
 .header-right {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
 }
+
 .date {
   font-size: 14px;
   color: var(--dark-gray);
   background-color: var(--bg-light-gray);
-  padding: 8px 16px;
-  border-radius: 8px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  white-space: nowrap;
 }
+
 .notification-btn {
   position: relative;
   background: none;
@@ -40,22 +55,67 @@
   padding: 8px;
   border-radius: 8px;
   background-color: var(--bg-light-gray);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
+.notification-btn:focus { outline: 2px solid rgba(0,0,0,0.06); }
+
 .bell-icon {
-  font-size: 20px;
+  font-size: 18px;
+  line-height: 1;
 }
+
 .notification-badge {
   position: absolute;
-  top: -4px;
-  right: -4px;
+  top: -6px;
+  right: -6px;
   background-color: var(--orange);
   color: var(--white);
-  font-size: 12px;
-  width: 18px;
+  font-size: 11px;
+  min-width: 18px;
   height: 18px;
+  padding: 0 4px;
   border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
+}
+
+.hamburger-btn {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 0;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.hamburger-btn:focus { outline: 2px solid rgba(0,0,0,0.08); }
+
+.hamburger-btn .bar {
+  display: block;
+  height: 2px;
+  width: 18px;
+  background: var(--black);
+  border-radius: 2px;
+}
+
+@media (min-width: 992px) {
+  .hamburger-btn { display: none; }
+}
+
+/* Responsive tweaks */
+@media (max-width: 992px) {
+  .header {
+    padding: 10px 0;
+  }
+  .date { display: none; } 
+  .subtitle { display: none; } 
+  .header-title { font-size: 16px; }
 }

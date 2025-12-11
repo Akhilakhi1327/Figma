@@ -1,240 +1,251 @@
-.revenue-section {
-  display: flex;
-  gap: 44px;
-  margin-bottom: 32px;
-}
-.revenue-trend-card {
-  width: 1019px;
-  height: 512px;
-  background: var(--white);
-  border-radius: var(--radius-large);
-  border: var(--border-light);
-  padding: var(--space-600);
-  display: flex;
-  flex-direction: column;
+:root{
+  --white: #fff;
+  --black: #0b0b0b;
+  --dark-gray: #6b7280;
+  --muted: #8a8f94;
+  --light-gray: #e9ecef;
+  --border-light: rgba(15,15,15,0.06);
+  --dashed: rgba(11,11,11,0.04);
+  --primary-green: #234b44;
+  --accent-blue: #3B82F6;
+  --accent-orange: #F59E0B;
+  --radius-small: 8px;
+  --radius-large: 14px;
+  --space-400: 12px;
+  --space-600: 20px;
+  --shadow-md: 0 6px 18px rgba(11,11,11,0.04);
+  --card-max-width: 1200px;
 }
 
-.revenue-header h3 {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--black);
-  margin: 0;
-  margin-bottom: 4px;
+/* ---------------- Layout for full-width revenue + below two columns ---------------- */
+
+/* Container (outer section) */
+.revenue-section {
+  width: 100%;
+  max-width: var(--card-max-width);
+  margin: 0 auto;
+  padding: 12px;
+  box-sizing: border-box;
 }
-.subtitle {
-  font-size: 14px;
-  color: var(--dark-gray);
-  margin: 0;
+
+/* Ensure frame-2 chart row is simple full-width */
+.frame-2, .revenue-trend-card {
+  width: 100%;
+  margin-bottom: 20px;
+  box-sizing: border-box;
 }
-.revenue-stats {
-  text-align: right;
+
+/* Two-column row below the chart: left flexible, right summary fixed */
+.frame-2b.two-col-below {
+  display: grid;
+  grid-template-columns: 1fr 360px; /* left flex, right summary fixed */
+  column-gap: 24px;
+  row-gap: 18px;
+  align-items: start;
+  width: 100%;
+  box-sizing: border-box;
 }
-.total {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--black);
-  margin-bottom: 4px;
+
+/* On smaller screens stack the two below sections */
+@media (max-width: 992px) {
+  .frame-2b.two-col-below {
+    grid-template-columns: 1fr;
+  }
+
+  .col--aside, .col--below-right, .revenue-breakdown-card {
+    max-width: 100%;
+  }
 }
-.monthly {
-  font-size: 14px;
-  color: var(--dark-gray);
-}
-.chart-container {
-  margin-top: 24px;
-  flex: 1;
-}
-.chart-grid {
-  display: flex;
-  height: 300px;
-  margin-top: 10px;
-}
-.y-axis {
+
+/* Allow left column to shrink and expand */
+.frame-2b.two-col-below > .col:first-child,
+.col--flex { min-width: 0; box-sizing: border-box; }
+
+/* Summary card styles (right column under chart) */
+.summary-card,
+.revenue-breakdown-card {
+  background: var(--white);
+  border-radius: var(--radius-large);
+  border: 1px solid var(--border-light);
+  padding: var(--space-400);
+  box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+  min-height: 220px;
+}
+
+/* Summary header */
+.summary-header { font-size: 13px; color: var(--dark-gray); text-transform: uppercase; letter-spacing: 0.6px; }
+.summary-amount { font-size: 24px; font-weight: 700; color: var(--black); }
+.summary-change { font-size: 13px; color: var(--primary-green); font-weight: 600; }
+
+/* Summary items list */
+.summary-list { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+.summary-item {
+  display: flex;
   justify-content: space-between;
-  padding-right: 20px;
-  font-size: 12px;
-  color: var(--dark-gray);
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-top: 1px dashed rgba(0,0,0,0.04);
 }
-.bars {
-  flex: 1;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-  padding-bottom: 30px;
-}
-.bar-group {
+.summary-item-left { display:flex; align-items:center; gap:8px; min-width:0; }
+.summary-item-right { text-align:right; min-width:0; }
+
+.dot { width:12px; height:12px; border-radius:50%; }
+.dot.blue { background: var(--accent-blue); }
+.dot.green { background: var(--primary-green); }
+.dot.orange { background: var(--accent-orange); }
+
+.amount { font-weight:700; color:var(--black); }
+.percent { color:var(--dark-gray); font-size:12px; }
+
+/* ---------------- Make the SVG truly responsive and fill available space ---------------- */
+
+/* Chart card: inner placeholder grows to fill card */
+.revenue-trend-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  height: 100%;
+  padding: clamp(12px, 2.5vw, 24px);
+  box-sizing: border-box;
+  background: var(--white);
+  border-radius: var(--radius-large);
+  border: 1px solid var(--border-light);
 }
-.bar {
-  width: 40px;
-  border-radius: 4px 4px 0 0;
+
+/* Chart placeholder uses most vertical space inside card */
+.chart-container { width: 100%; box-sizing: border-box; }
+.chart-placeholder {
+  padding: 10px;
+  border-radius: var(--radius-small);
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-height: 260px;
+  background: linear-gradient(180deg, rgba(255,255,255,1), rgba(250,250,250,1));
+  border: 2px dashed var(--dashed);
+}
+
+/* Chart grid: main layout for y-axis + svg */
+.chart-grid { display: flex; gap: 12px; align-items: stretch; height: 100%; box-sizing: border-box; }
+
+/* Reduce y-axis width so svg gains more room */
+.y-axis {
+  width: 56px;
+  padding-right: 8px;
+  box-sizing: border-box;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: right;
+  align-items: flex-end;
+}
+
+/* SVG container fills the available space */
+.line-graph-container {
+  flex: 1 1 auto;
+  min-height: 320px;
   position: relative;
-  margin: 0 2px;
+  padding-bottom: 34px;
+  box-sizing: border-box;
+  display:flex;
+  align-items:stretch;
 }
-.bar-value {
-  position: absolute;
-  top: -25px;
-  left: 50%;
+.line-graph-container svg {
+  width: 100% !important;
+  height: 100% !important;
+  display:block;
+}
+
+/* Month labels positioned at bottom of svg container */
+.month-labels {
+  position:absolute;
+  bottom:6px;
+  left:0;
+  right:0;
+  height:28px;
+  pointer-events:none;
+  display:block;
+}
+.month-label {
+  position:absolute;
+  bottom: 6px;
   transform: translateX(-50%);
   font-size: 12px;
-  font-weight: 600;
-  color: var(--black);
+  color: var(--muted);
   white-space: nowrap;
 }
-.month {
-  margin-top: 8px;
-  font-size: 12px;
-  color: var(--dark-gray);
-}
-.chart-title {
-  font-size: 14px;
-  color: var(--dark-gray);
-  text-align: center;
-  margin-bottom: 20px;
-}
+.month-label.hidden { opacity: 0; pointer-events: none; }
+.month-label.visible { opacity: 1; }
 
-
-.line-graph-container {
-  flex: 1;
-  position: relative;
-  height: 100%;
-  padding-bottom: 40px; 
-}
-
-.line-graph-container svg {
-  width: 100%;
-  height: 100%;
-}
-
-.month-labels {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-around;
-  padding: 0 20px;
-}
-
-.month-label {
-  font-size: 12px;
-  color: var(--dark-gray);
-  position: absolute;
-  bottom: 0;
-}
-.tooltip-area {
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.tooltip-area:hover {
-  transform: scale(1.2);
-}
-
+/* Tooltip / value labels */
 .value-label {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
+  font-size: 12px;
+  fill: var(--muted);
+  font-weight: 600;
+  opacity: 0.95;
 }
 
-.data-point:hover .value-label {
-  opacity: 1;
+/* Make gridlines subtle inside SVG — handled via lines in JSX */
+/* No CSS needed for svg strokes beyond colors, but keep fallback: */
+.line-graph-container .data-point circle { transition: r 200ms; }
+.line-graph-container .data-point:hover circle { r: 8; }
+
+/* On small screens reduce heights but keep responsive */
+@media (max-width: 520px) {
+  .line-graph-container { min-height: 220px; padding-bottom: 30px; }
+  .y-axis { display:none; width:0; padding:0; }
+  .month-label { font-size:11px; }
+  .revenue-trend-card { padding: 12px; }
 }
 
-.line-graph-container path {
-  animation: drawLine 1.5s ease-out forwards;
-}
-
-@keyframes drawLine {
-  from {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-  }
-  to {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 0;
-  }
-}
-
+/* safety: prevent any leftover fixed widths forcing overflow */
+.revenue-trend-card,
+.chart-placeholder,
+.line-graph-container,
+.revenue-breakdown,
 .revenue-breakdown-card {
-  width: 578px;
-  height: 512px;
-  background: var(--white);
-  border-radius: var(--radius-large);
-  border: var(--border-light);
-  padding: var(--space-600);
-  display: flex;
-  flex-direction: column;
-}
-.total-revenue-box {
-  box-shadow: var(--shadow-md);
-  background: var(--bg-light-gray);
-  width: 530px;
-  height: 133px;
-  border-radius: var(--radius-medium);
-  padding: var(--space-400);
-  margin-bottom: 24px;
-}
-.total-label {
-  font-size: 14px;
-  color: var(--dark-gray);
-  margin-bottom: 8px;
-}
-.total-amount {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--black);
-  margin-bottom: 8px;
-}
-.revenue-change {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-}
-.change-up {
-  color: var(--green);
-  font-weight: 600;
-}
-.sources-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.source-item {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.source-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.source-name {
-  font-weight: 500;
-  color: var(--black);
-}
-.source-percentage {
-  font-weight: 600;
-  color: var(--black);
-}
-.source-amount {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--black);
-}
-.source-label {
-  font-size: 14px;
-  color: var(--dark-gray);
+  min-width: 0;
+  box-sizing: border-box;
 }
 
-.flex-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* ---------------- layout of the aside breakdown card (right column) ---------------- */
+.revenue-breakdown-card {
+  display:flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
 }
+
+/* total box */
+.total-revenue-box { display:flex; flex-direction:column; gap:8px; }
+.total-label { font-size: 13px; color: var(--muted); }
+.total-amount { font-size: 22px; font-weight:700; color: var(--black); }
+.revenue-change { display:flex; gap:8px; align-items:center; }
+.change-up { color: var(--primary-green); font-weight:700; }
+
+/* sources list */
+.sources-list { display:flex; flex-direction:column; gap:12px; }
+.source-item { padding: 8px 0; border-top:1px dashed rgba(0,0,0,0.04); }
+.source-header { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.source-name { color:var(--dark-gray); font-weight:600; }
+.source-percentage { color:var(--muted); }
+.source-amount { font-weight:700; color:var(--black); }
+.source-label { color:var(--muted); font-size: 12px; }
+
+/* ---------------- Accessibility & polish ---------------- */
+.revenue-header { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom: 8px; }
+.revenue-stats { display:flex; gap:8px; align-items:center; }
+
+/* small helpers */
+.flex-between { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+
+/* ---------------- Example grid adaptation for page (if you use wrapper) ---------------- */
+.page-row { display:flex; gap: 24px; flex-wrap:wrap; align-items:flex-start; }
+
+/* ---------------- End ---------------- */

@@ -84,7 +84,6 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Dark bottom border for each step */
 .funnel-step::after {
   content: '';
   position: absolute;
@@ -176,7 +175,6 @@
   line-height: 1.5;
 }
 
-/* Responsive styles */
 @media (max-width: 1680px) {
   .conversion-card {
     width: 100%;

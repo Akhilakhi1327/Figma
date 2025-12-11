@@ -12,18 +12,14 @@ function DailyActiveLearners() {
     { day: 'Sun', count: 900 }
   ];
 
-  // Y-axis values
   const yAxisValues = [0, 450, 900, 1350, 1800, 2250];
-
-  // Generate SVG path for curve
   const generateCurvePath = () => {
     const points = weeklyData.map((item, index) => {
-      const x = 50 + (index * 100); // Spacing
-      const y = 250 - (item.count / 2250 * 200); // Scale to fit height
+      const x = 50 + (index * 100); 
+      const y = 250 - (item.count / 2250 * 200); 
       return `${x},${y}`;
     });
 
-    // Create smooth curve using C commands
     let path = `M ${points[0]}`;
     
     for (let i = 1; i < points.length; i++) {
@@ -45,10 +41,9 @@ function DailyActiveLearners() {
 
   return (
     <div className="daily-learners-container">
-      {/* Outer Box */}
       <div className="daily-learners-outer-box">
         
-        {/* Header Section */}
+        
         <div className="learners-header">
           <div className="header-left">
             <h3 className="learners-title">Daily Active Learners</h3>
@@ -77,19 +72,15 @@ function DailyActiveLearners() {
             ))}
           </div>
 
-          {/* Graph Area */}
           <div className="graph-area">
-            {/* Grid Lines */}
             <div className="grid-lines">
               {yAxisValues.map((_, index) => (
                 <div key={index} className="grid-line"></div>
               ))}
             </div>
 
-            {/* SVG Curve Graph */}
             <div className="curve-graph">
               <svg width="100%" height="100%" viewBox="0 0 800 300" preserveAspectRatio="none">
-                {/* Grid Lines */}
                 {[0, 1, 2, 3, 4, 5].map((i) => (
                   <line 
                     key={`grid-${i}`}
@@ -103,7 +94,6 @@ function DailyActiveLearners() {
                   />
                 ))}
 
-                {/* X-axis */}
                 <line 
                   x1="50" 
                   y1="250" 
@@ -113,7 +103,6 @@ function DailyActiveLearners() {
                   strokeWidth="2"
                 />
 
-                {/* Y-axis */}
                 <line 
                   x1="50" 
                   y1="50" 
@@ -132,7 +121,6 @@ function DailyActiveLearners() {
                   className="main-curve-line"
                 />
 
-                {/* Data Points */}
                 {weeklyData.map((item, index) => {
                   const x = 50 + (index * 100);
                   const y = 250 - (item.count / 2250 * 200);
@@ -157,7 +145,7 @@ function DailyActiveLearners() {
                   );
                 })}
 
-                {/* Area under curve */}
+        
                 <path 
                   d={`${generateCurvePath()} L 750,250 L 50,250 Z`}
                   fill="url(#areaGradient)"
@@ -166,7 +154,6 @@ function DailyActiveLearners() {
                 />
               </svg>
 
-              {/* Gradient for area under curve */}
               <defs>
                 <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
                   <stop offset="0%" stopColor="#10B981" stopOpacity="0.3" />
@@ -175,7 +162,6 @@ function DailyActiveLearners() {
               </defs>
             </div>
 
-            {/* X-axis Labels (Week Days) */}
             <div className="x-axis">
               {weeklyData.map((item) => (
                 <div key={item.day} className="x-label">
